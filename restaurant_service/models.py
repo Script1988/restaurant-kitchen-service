@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -5,12 +6,18 @@ from django.db import models
 class DishType(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = "name"
+
     def __str__(self):
         return self.name
 
 
 class Cook(AbstractUser):
-    pass
+    years_of_experience = models.IntegerField()
+
+    class Meta:
+        ordering = "username"
 
 
 class Dish(models.Model):
@@ -22,7 +29,10 @@ class Dish(models.Model):
         on_delete=models.CASCADE,
         related_name="dish_type"
     )
-    cooks = models.ManyToManyField(Cook, related_name="cook")
+    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="cook")
+
+    class Meta:
+        ordering = ["name"]
 
     def __str__(self):
-        return f"{self.name}: {self.price}"
+        return f"{self.name}, price: {self.price}"
