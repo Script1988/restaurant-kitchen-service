@@ -1,0 +1,14 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+  <h1>We have current types of dishes</h1>
+  {% if dish_type_list %}
+    <ul>
+    {% for dish_type in dish_type_list %}
+      <li class="sidebar-nav"><strong>{{ dish_type.name }}</strong></li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>We don`t have any dish of the current type</p>
+  {% endif %}
+{% endblock %}
