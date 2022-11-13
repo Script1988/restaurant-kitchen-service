@@ -1,0 +1,17 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+  <h1>People, which make delicious food</h1>
+  {% if cook_list %}
+
+    {% for cook in cook_list %}
+      <li class="sidebar-nav">
+      <a href="#">{{ cook_list.username }}</a>
+        <strong>Name:</strong> {{ cook.first_name }} {{ cook.last_name }} (Experience: {{ cook.years_of_experience }})
+      </li>
+    {% endfor %}
+
+  {% else %}
+    <p>We don`t have any cooks at the current moment</p>
+  {% endif %}
+{% endblock %}

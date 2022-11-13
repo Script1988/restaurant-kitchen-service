@@ -18,14 +18,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from restaurant_service.views import DishTypeListView, DishListView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("restaurant_service.urls", namespace="restaurant_service")),
-    path(
-        "dish-types/",
-         DishTypeListView.as_view(), name="dish_type_list",
-    ),
-    path("dishes/", DishListView.as_view(), name="dish_list")
+    path('__debug__/', include('debug_toolbar.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
