@@ -1,0 +1,13 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+  <h1>Detailed information about category name: {{ dish_type_detail }}</h1>
+    <ul>
+    {% for dish in dish_type_detail.dish_type.all %}
+      <li class="sidebar-nav"><a href="#">{{ dish.name }}</a>
+      (Price: {{ dish.price }} $)
+      </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
