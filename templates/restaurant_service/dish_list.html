@@ -6,7 +6,7 @@
     <ul>
     {% for dish in dish_list %}
       <li class="sidebar-nav">
-      <a href="#">{{ dish.name }}</a>
+      <a href={% url 'restaurant_service:dish_detail' pk=dish.pk %}>{{ dish.name }}</a>
       (Price: {{ dish.price }} $)
       </li>
     {% endfor %}

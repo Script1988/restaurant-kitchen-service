@@ -1,0 +1,10 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+  <h1>Detailed information about {{ dish.name }}</h1>
+  <p>Price: {{ dish.price }} $</p>
+  <div>
+  {{ dish.description }}
+  </div>
+
+{% endblock %}
