@@ -1,0 +1,17 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+  <h1>You can order any dish from the list below</h1>
+  {% if dish_list %}
+    <ul>
+    {% for dish in dish_list %}
+      <li class="sidebar-nav">
+      <a href="#">{{ dish.name }}</a>
+      (Price: {{ dish.price }} $)
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>We don`t have any dishes at the current moment</p>
+  {% endif %}
+{% endblock %}

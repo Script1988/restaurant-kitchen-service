@@ -5,7 +5,8 @@
   {% if dish_type_list %}
     <ul>
     {% for dish_type in dish_type_list %}
-      <li class="sidebar-nav"><strong>{{ dish_type.name }}</strong></li>
+      <li class="sidebar-nav"><a href="#">{{ dish_type.name }}</a>
+      </li>
     {% endfor %}
     </ul>
   {% else %}
