@@ -5,4 +5,11 @@
   <p>First name: {{ cook.first_name }} </p>
   <p>Last name: {{ cook.last_name }} </p>
   <p>Experience: {{ cook.years_of_experience }} years</p>
+  <hr>
+
+   <h4>Current cook is making:</h4>
+  {% for dish  in cook.cook.all %}
+    <p>{{ dish.name }} {{ dish.price }} $</p>
+  {% endfor %}
 {% endblock %}
+
