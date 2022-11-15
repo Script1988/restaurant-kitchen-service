@@ -3,6 +3,12 @@
 {% block content %}
   <h1>Detailed information about {{ dish.name }}</h1>
   <p>Price: {{ dish.price }} $</p>
+  <a href={% url 'restaurant_service:dish_create' %}>Create a dish</a>
+  <br>
+  <a href={% url 'restaurant_service:dish_update' pk=dish.pk %}>Update the dish</a>
+  <br>
+  <a href={% url 'restaurant_service:dish_delete' pk=dish.pk %}>Delete the dish</a>
+  <hr>
   <div>
   {{ dish.description }}
   </div>

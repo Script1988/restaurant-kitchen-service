@@ -11,6 +11,9 @@ from restaurant_service.views import (
     DishTypeCreateView,
     DishTypeUpdateView,
     DishTypeDeleteView,
+    DishCreateView,
+    DishUpdateView,
+    DishDeleteView,
 )
 
 
@@ -25,6 +28,9 @@ urlpatterns = [
     path("dish-types/create/", DishTypeCreateView.as_view(), name="dish_type_form"),
     path("dish-types/<int:pk>/update/", DishTypeUpdateView.as_view(), name="dish_type_update"),
     path("dish-types/<int:pk>/delete/", DishTypeDeleteView.as_view(), name="dish_type_delete"),
+    path("dishes/create/", DishCreateView.as_view(), name="dish_create"),
+    path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="dish_update"),
+    path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="dish_delete"),
 ]
 
 
