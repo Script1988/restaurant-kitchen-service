@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "debug_toolbar",
     "restaurant_service",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,8 @@ TEMPLATES = [
 WSGI_APPLICATION = "restaurant.wsgi.application"
 AUTH_USER_MODEL = "restaurant_service.Cook"
 LOGIN_REDIRECT_URL = "/"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 # Database
