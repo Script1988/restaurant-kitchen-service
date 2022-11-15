@@ -8,6 +8,9 @@
       <li class="sidebar-nav">
       <a href={% url 'restaurant_service:cook_detail' pk=cook.pk %}>{{ cook_list.username }}
         Name: {{ cook.first_name }} {{ cook.last_name }}</a> (Experience: {{ cook.years_of_experience }} years)
+      {% if user.id == cook.id %}
+        - You
+      {% endif %}
       </li>
     {% endfor %}
 

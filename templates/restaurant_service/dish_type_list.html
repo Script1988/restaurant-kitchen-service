@@ -1,7 +1,11 @@
 {%  extends 'base.html' %}
 
 {% block content %}
-  <h1>We have current types of dishes</h1>
+  <h1>We have current types of dishes
+   <a href={% url 'restaurant_service:dish_type_form' %}>+</a>
+  </h1>
+
+
   {% if dish_type_list %}
     <ul>
     {% for dish_type in dish_type_list %}

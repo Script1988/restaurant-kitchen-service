@@ -8,8 +8,13 @@
   <hr>
 
    <h4>Current cook is making:</h4>
+  {% if cook.cook.all %}
   {% for dish  in cook.cook.all %}
     <p>{{ dish.name }} {{ dish.price }} $</p>
-  {% endfor %}
+    {% endfor %}
+  {% else %}
+      <p>Current cook is not making any dishes</p>
+    {% endif %}
+
 {% endblock %}
 

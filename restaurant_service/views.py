@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from restaurant_service.models import DishType, Cook, Dish
@@ -36,6 +37,13 @@ class DishTypeDetailView(generic.DetailView):
     model = DishType
     template_name = "restaurant_service/dish_type_detail.html"
     context_object_name = "dish_type_detail"
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("restaurant_service:dish_type_list")
+    template_name = "restaurant_service/dish_type_form.html"
 
 
 class DishListView(generic.ListView):
