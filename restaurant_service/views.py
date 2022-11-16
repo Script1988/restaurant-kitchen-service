@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from restaurant_service.forms import CookCreationForm, DishForm
+from restaurant_service.forms import CookCreationForm, DishForm, CookExperienceUpdateForm
 from restaurant_service.models import DishType, Cook, Dish
 
 
@@ -101,6 +101,12 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
     form_class = CookCreationForm
+    success_url = reverse_lazy("restaurant_service:cook_list")
+
+
+class CookExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Cook
+    form_class = CookExperienceUpdateForm
     success_url = reverse_lazy("restaurant_service:cook_list")
 
 

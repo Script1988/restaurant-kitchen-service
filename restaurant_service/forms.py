@@ -23,6 +23,12 @@ class CookCreationForm(UserCreationForm):
         return math.floor(experience)
 
 
+class CookExperienceUpdateForm(UserCreationForm):
+    class Meta:
+        model = Cook
+        fields = ("years_of_experience",)
+
+
 class DishForm(forms.ModelForm):
     cooks = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
