@@ -1,17 +1,20 @@
 {%  extends 'base.html' %}
 
 {% block content %}
+  <a class="float-right" href={% url 'restaurant_service:cook_delete' pk=cook.pk %}>Delete the current cook</a>
   <h1>Detailed information about {{ cook.username }}</h1>
   <p>First name: {{ cook.first_name }} </p>
   <p>Last name: {{ cook.last_name }} </p>
   <p>Experience: {{ cook.years_of_experience }} years</p>
   <hr>
 
+
    <h4>Current cook is making:</h4>
   {% if cook.cook.all %}
   {% for dish  in cook.cook.all %}
     <p>{{ dish.name }} {{ dish.price }} $</p>
     {% endfor %}
+
   {% else %}
       <p>Current cook is not making any dishes</p>
     {% endif %}
