@@ -1,7 +1,9 @@
 {%  extends 'base.html' %}
 
 {% block content %}
-  <h1>People, which make delicious food</h1>
+  <h1>People, which make delicious food
+  <a href={% url 'restaurant_service:cook_create' %}>+</a>
+  </h1>
   {% if cook_list %}
 
     {% for cook in cook_list %}
