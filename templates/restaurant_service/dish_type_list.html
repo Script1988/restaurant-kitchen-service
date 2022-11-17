@@ -1,10 +1,15 @@
 {%  extends 'base.html' %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>We have current types of dishes
    <a href={% url 'restaurant_service:dish_type_form' %}>+</a>
   </h1>
+  <form action="" method="get" class="form-inline">
+  {{ search_field|crispy }}
+  <input type="submit" value="Submit" class="btn btn-secondary">
 
+  </form>
 
   {% if dish_type_list %}
     <table class="table">
