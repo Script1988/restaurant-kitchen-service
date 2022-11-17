@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from restaurant_service.forms import CookCreationForm, DishForm, CookExperienceUpdateForm, DishTypeSearchField, \
-    DishSearchField
+    DishSearchField, CookSearchField
 from restaurant_service.models import DishType, Cook, Dish
 
 
@@ -121,6 +121,21 @@ class DishDetailView(generic.DetailView):
 class CookListView(generic.ListView):
     model = Cook
     paginate_by = 5
+    queryset = Cook.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CookListView, self).get_context_data(**kwargs)
+        context["search_field"] = CookSearchField()
+
+        return context
+
+    def get_queryset(self):
+        last_name = self.request.GET.get("last_name")
+
+        if last_name:
+            return self.queryset.filter(last_name__icontains=last_name)
+
+        return self.queryset
 
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):

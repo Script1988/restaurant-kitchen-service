@@ -1,9 +1,16 @@
 {%  extends 'base.html' %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>People, which make delicious food
   <a href={% url 'restaurant_service:cook_create' %}>+</a>
   </h1>
+  <form action="" method="get" class="form-inline">
+  {{ search_field|crispy }}
+  <input type="submit" value="Submit" class="btn btn-secondary">
+
+  </form>
+
   {% if cook_list %}
 
     {% for cook in cook_list %}
