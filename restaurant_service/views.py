@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from restaurant_service.forms import CookCreationForm, DishForm, CookExperienceUpdateForm, DishTypeSearchField
+from restaurant_service.forms import CookCreationForm, DishForm, CookExperienceUpdateForm, DishTypeSearchField, \
+    DishSearchField
 from restaurant_service.models import DishType, Cook, Dish
 
 
@@ -40,7 +41,7 @@ class DishTypeListView(generic.ListView):
 
         return context
 
-    def get_queryset(self,):
+    def get_queryset(self):
         name = self.request.GET.get("name")
 
         if name:
@@ -80,6 +81,20 @@ class DishListView(generic.ListView):
     template_name = "restaurant_service/dish_list.html"
     queryset = Dish.objects.all().select_related("dish_type")
     paginate_by = 10
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(DishListView, self).get_context_data(**kwargs)
+        context["search_field"] = DishSearchField
+
+        return context
+
+    def get_queryset(self):
+        name = self.request.GET.get("name")
+
+        if name:
+            return self.queryset.filter(name__icontains=name)
+
+        return self.queryset
 
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
