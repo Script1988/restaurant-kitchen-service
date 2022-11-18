@@ -9,12 +9,12 @@
   {{ search_field|crispy }}
   <input type="submit" value="Submit" class="btn btn-secondary">
   </form>
-
+  <br>
   {% if dish_list %}
     <ul>
     {% for dish in dish_list %}
       <li class="sidebar-nav">
-      <a href={% url 'restaurant_service:dish_detail' pk=dish.pk %}>{{ dish.name }}</a>
+      <a class="text-info" href={% url 'restaurant_service:dish_detail' pk=dish.pk %}>{{ dish.name }}</a>
       (Price: {{ dish.price }} $)
       </li>
     {% endfor %}

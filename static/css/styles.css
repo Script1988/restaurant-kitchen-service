@@ -1,8 +1,20 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin-top: 20px;
+    background: url("https://images.pexels.com/photos/313700/pexels-photo-313700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+    text-decoration: yellow;
 }
 
 .sidebar-nav {
     padding: 0;
     list-style: none;
+}
+
+.narrow-select {
+    width: 550px;
+
 }

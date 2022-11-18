@@ -107,6 +107,7 @@ class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = DishForm
     success_url = reverse_lazy("restaurant_service:dish_list")
     template_name = "restaurant_service/dish_form.html"
+    queryset = Dish.objects.all().select_related("dish_type")
 
 
 class DishDeleteView(LoginRequiredMixin, generic.DeleteView):

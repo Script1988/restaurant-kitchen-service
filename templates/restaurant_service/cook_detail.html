@@ -1,9 +1,9 @@
 {%  extends 'base.html' %}
 
 {% block content %}
-  <a class="float-right" href={% url 'restaurant_service:cook_delete' pk=cook.pk %}>Delete the current cook</a>
+  <a class="float-right text-danger" href={% url 'restaurant_service:cook_delete' pk=cook.pk %}>Delete the current cook</a>
   <h1>Detailed information about {{ cook.username }}</h1>
-  <a href={% url 'restaurant_service:cook_update' pk=cook.pk %}>Update experience</a>
+  <a class="text-success" href={% url 'restaurant_service:cook_update' pk=cook.pk %}>Update experience</a>
   <hr>
   <p>First name: {{ cook.first_name }} </p>
   <p>Last name: {{ cook.last_name }} </p>

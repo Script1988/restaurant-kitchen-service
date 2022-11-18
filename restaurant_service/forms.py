@@ -66,3 +66,4 @@ class CookSearchField(forms.Form):
         label="",
         widget=forms.TextInput(attrs={"placeholder": "Search by last name"})
     )
+
