@@ -3,19 +3,19 @@
 {% block content %}
   <h1>Detailed information about {{ dish.name }}</h1>
   <p>Price: {{ dish.price }} $</p>
-  <a class="text-success" href={% url 'restaurant_service:dish_create' %}>Create a dish</a>
-  <br>
-  <a class="text-success" href={% url 'restaurant_service:dish_update' pk=dish.pk %}>Update the dish</a>
-  <br>
-  <a class="text-danger" href={% url 'restaurant_service:dish_delete' pk=dish.pk %}>Delete the dish</a>
+    <a class="btn btn-success w-25" href={% url 'restaurant_service:dish_create' %}>Create a dish</a>
+    <a class="btn btn-info w-25" href={% url 'restaurant_service:dish_update' pk=dish.pk %}>Update the dish</a>
+    <a class="btn btn-danger w-25" href={% url 'restaurant_service:dish_delete' pk=dish.pk %}>Delete the dish</a>
+
   <hr>
-  <div>
+  <div class="font-italic">
   {{ dish.description }}
+
   </div>
-
+  <hr>
+  {% if dish.image %}
+    <a class="btn btn-success" target="_blank" href={{ dish.image.url }}>Dish photo</a>
+    {% else %}
+    <p class="text-danger">Current dish does not have a photo</p>
+  {% endif %}
 {% endblock %}
-
-{#<form action="" method="post">#}
-{#  {% csrf_token %}#}
-{#  <input type="submit" value="Yes, delete" class="btn btn-danger">#}
-{#  </form>#}
