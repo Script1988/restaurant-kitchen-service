@@ -2,12 +2,27 @@
 
 {% block content %}
   <h1>We have the next kinds of {{ dish_type_detail }}</h1>
-    <ul>
+     <table class="table table-active table-bordered w-25">
+        <tr>
+          <th style="width: 300px">Name</th>
+          <th>Price</th>
+        </tr>
     {% for dish in dish_type_detail.dish_type.all %}
-      <li class="sidebar-nav"><a class="text-info" href={% url 'restaurant_service:dish_detail' pk=dish.pk %}>{{ dish.name }}</a>
-      (Price: {{ dish.price }} $)
-      </li>
+    <tr>
+    <td style="width: 300px" class="btn btn-success text-left">
+    <a class="text-white" href={% url 'restaurant_service:dish_detail' pk=dish.pk %}>{{ dish.name }}</a>
+    </td>
+    <td>
+      {{ dish.price }} $
+    </td>
+    </tr>
     {% endfor %}
-    </ul>
-
 {% endblock %}
+{#    <ul>#}
+{#    {% for dish in dish_type_detail.dish_type.all %}#}
+{#      <li class="sidebar-nav"><a class="text-info" href={% url 'restaurant_service:dish_detail' pk=dish.pk %}>{{ dish.name }}</a>#}
+{#      (Price: {{ dish.price }} $)#}
+{#      </li>#}
+{#    {% endfor %}#}
+{#    </ul>#}
+

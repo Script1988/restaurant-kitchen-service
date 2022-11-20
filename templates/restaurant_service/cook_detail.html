@@ -14,12 +14,27 @@
 
    <h4>Current cook is making:</h4>
   {% if cook.cook.all %}
-  {% for dish  in cook.cook.all %}
-    <p>{{ dish.name }} {{ dish.price }} $</p>
+    <table class="table table-active table-bordered w-25">
+        <tr>
+          <th style="width: 300px">Name</th>
+          <th>Price</th>
+        </tr>
+    {% for dish  in cook.cook.all %}
+      <tr>
+        <td style="width: 300px" class="btn btn-success text-white text-left">
+        {{ dish.name }}
+        </td>
+        <td>
+        {{ dish.price }} $
+        </td>
+      </tr>
     {% endfor %}
-
-  {% else %}
-      <p>Current cook is not making any dishes</p>
+{#  {% for dish  in cook.cook.all %}#}
+{#    <p>{{ dish.name }} {{ dish.price }} $</p>#}
+{#    {% endfor %}#}
+{##}
+{#  {% else %}#}
+{#      <p>Current cook is not making any dishes</p>#}
     {% endif %}
 
 {% endblock %}
