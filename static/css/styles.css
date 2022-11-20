@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+     font-size: 18px;
 }
 
 body {
@@ -17,4 +18,13 @@ body {
 .narrow-select {
     width: 550px;
 
+}
+
+.links {
+    padding: 3px 0;
+}
+
+.btn {
+    text-align: left;
+    border-radius: 10px;
 }

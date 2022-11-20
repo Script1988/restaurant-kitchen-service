@@ -1,15 +1,16 @@
 
 <ul class="sidebar-nav">
   {% if user.is_authenticated %}
-    <li class="list-group" ><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-    <li>User: {{ user.username }}</li>
+    <li class="list-group links" ><a class="btn btn-danger w-75" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+    <li class="btn btn-secondary w-75">User: {{ user.username }}</li>
     {% else %}
       <li><a href="{% url 'login' %}">Login</a></li>
       <br>
   {% endif %}
   <br>
-  <li><a class="text-info" href="{% url 'restaurant_service:index' %}">Home</a></li>
-  <li><a class="text-info" href="{% url 'restaurant_service:dish_type_list' %}">All dish types</a></li>
-  <li><a class="text-info" href="{% url 'restaurant_service:dish_list' %}">All dishes</a></li>
-  <li><a class="text-info" href="{% url 'restaurant_service:cook_list' %}">Our cooks</a></li>
+  <br>
+  <li class="links"><a class="text-white btn btn-info w-75" href="{% url 'restaurant_service:index' %}">Home</a></li>
+  <li class="links"><a class="text-white btn btn-info w-75" href="{% url 'restaurant_service:dish_type_list' %}">All dish types</a></li>
+  <li class="links"><a class="text-white btn btn-info w-75" href="{% url 'restaurant_service:dish_list' %}">All dishes</a></li>
+  <li class="links"><a class="text-white btn btn-info w-75" href="{% url 'restaurant_service:cook_list' %}">Our cooks</a></li>
 </ul>
