@@ -8,8 +8,9 @@
   <form action="" method="post">
   {% csrf_token %}
   <input type="submit" value="Yes, delete" class="btn btn-danger">
+  <div style="margin-left: 250px" class="btn btn-success">
+    <a class="text-white" href={% url 'restaurant_service:dish_type_list' %}>No, return</a>
+  </div>
   </form>
-  <li style="width: 110px" class="btn btn-success text-center">
-    <a class="text-white" href={% url 'restaurant_service:dish_type_list' %}>No</a>
-  </li>
+
 {% endblock %}

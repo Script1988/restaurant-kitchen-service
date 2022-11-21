@@ -29,13 +29,8 @@
         </td>
       </tr>
     {% endfor %}
-{#  {% for dish  in cook.cook.all %}#}
-{#    <p>{{ dish.name }} {{ dish.price }} $</p>#}
-{#    {% endfor %}#}
-{##}
-{#  {% else %}#}
-{#      <p>Current cook is not making any dishes</p>#}
+    {% else %}
+    <p>is not making any dish</p>
     {% endif %}
 
 {% endblock %}
-

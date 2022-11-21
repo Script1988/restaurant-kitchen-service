@@ -19,8 +19,8 @@
         </tr>
     {% for cook in cook_list%}
     <tr>
-    <td style="width: 300px" class="btn btn-success text-left">
-    <a class="text-white" href={% url 'restaurant_service:cook_detail' pk=cook.pk %}>{{ cook.first_name }} {{ cook.last_name }}
+    <td >
+    <a class="text-white btn btn-success text-left btn-block" href={% url 'restaurant_service:cook_detail' pk=cook.pk %}>{{ cook.first_name }} {{ cook.last_name }}
     {% if user.id == cook.id %}
         - You
     {% endif %}
@@ -29,18 +29,6 @@
     <td>
       {{ cook.years_of_experience }} years
     {% endfor %}
-{#    </td>#}
-{#    </tr>#}
-{#    {% endfor %}#}
-{#    {% for cook in cook_list %}#}
-{#      <li class="sidebar-nav">#}
-{#      <a class="text-info" href={% url 'restaurant_service:cook_detail' pk=cook.pk %}>{{ cook_list.username }}#}
-{#        Name: {{ cook.first_name }} {{ cook.last_name }}</a> (Experience: {{ cook.years_of_experience }} years)#}
-{#      {% if user.id == cook.id %}#}
-{#        - You#}
-{#      {% endif %}#}
-{#      </li>#}
-{#    {% endfor %}#}
 
   {% else %}
     <p>We don`t have any cooks at the current moment</p>
