@@ -3,7 +3,7 @@
 
 {% block content %}
   <h1>{{ object|yesno:"Update,Create" }} a dish </h1>
-  <form action="" method="post" novalidate class="narrow-select">
+  <form action="" method="post" novalidate class="narrow-select" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form|crispy}}
   <input class="btn btn-primary" type="submit" value="Submit">

@@ -19,7 +19,7 @@
         </tr>
     {% for cook in cook_list%}
     <tr>
-    <td >
+    <td style="padding: 0">
     <a class="text-white btn btn-success text-left btn-block" href={% url 'restaurant_service:cook_detail' pk=cook.pk %}>{{ cook.first_name }} {{ cook.last_name }}
     {% if user.id == cook.id %}
         - You
