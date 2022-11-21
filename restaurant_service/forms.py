@@ -23,7 +23,7 @@ class CookCreationForm(UserCreationForm):
         return math.floor(experience)
 
 
-class CookExperienceUpdateForm(UserCreationForm):
+class CookExperienceUpdateForm(CookCreationForm):
     class Meta:
         model = Cook
         fields = ("years_of_experience",)
@@ -40,13 +40,21 @@ class DishForm(forms.ModelForm):
         model = Dish
         fields = "__all__"
 
+    def clean_price(self):
+        price = self.cleaned_data["price"]
+
+        if price < 0:
+            raise ValidationError("Price can not be lower 0 ")
+
+        return math.floor(price)
+
 
 class DishTypeSearchField(forms.Form):
     name = forms.CharField(
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"})
+        widget=forms.TextInput(attrs={"placeholder": "Search by category name"})
     )
 
 

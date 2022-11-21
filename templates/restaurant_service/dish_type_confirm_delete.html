@@ -9,4 +9,7 @@
   {% csrf_token %}
   <input type="submit" value="Yes, delete" class="btn btn-danger">
   </form>
+  <li style="width: 110px" class="btn btn-success text-center">
+    <a class="text-white" href={% url 'restaurant_service:dish_type_list' %}>No</a>
+  </li>
 {% endblock %}

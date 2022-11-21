@@ -37,7 +37,7 @@ def dish_image_file_path(instance, filename):
 class Dish(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField()
-    image = models.ImageField(upload_to=dish_image_file_path, null=True)
+    image = models.ImageField(upload_to=dish_image_file_path, null=True, blank=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     dish_type = models.ForeignKey(
         DishType,

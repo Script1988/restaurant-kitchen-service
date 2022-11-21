@@ -4,7 +4,7 @@
     <li class="list-group links" ><a class="btn btn-danger w-75" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
     <li class="btn btn-secondary w-75">User: {{ user.username }}</li>
     {% else %}
-      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a class="btn btn-success w-75"href="{% url 'login' %}">Login</a></li>
       <br>
   {% endif %}
   <br>
