@@ -9,6 +9,7 @@
   {{ search_field|crispy }}
   <input type="submit" value="Submit" class="btn btn-secondary">
 
+
   </form>
   <br>
   {% if cook_list %}
@@ -28,6 +29,7 @@
     </td>
     <td>
       {{ cook.years_of_experience }} years
+    </td>
     {% endfor %}
 
   {% else %}
