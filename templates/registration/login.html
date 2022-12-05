@@ -7,10 +7,10 @@
 {% endif %}
 
 <h1>You need to login to see the content of this page</h1>
-  <h3>For testing you can use</h3>
-  <p>Username: test</p>
-  <p>Password: test1234test</p>
-
+  <h3>For testing you can use:</h3>
+  <p class="font-weight-bold">Username: test</p>
+  <p class="font-weight-bold">Password: test1234test</p>
+  <hr>
 
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
