@@ -3,6 +3,7 @@
 
 {% block content %}
   <h1>You can order any dish from the list below
+  <a class="text-success" href={% url "restaurant_service:dish_create" %}>+</a>
   </h1>
 
   <form action="" method="get" class="form-inline">
@@ -14,7 +15,7 @@
      <table class="table table-active table-bordered w-25">
         <tr>
           <th style="width: 300px">Name</th>
-          <th>Price</th>
+          <th style="width: 100px">Price</th>
         </tr>
     {% for dish in dish_list %}
     <tr>
