@@ -11,13 +11,14 @@
   <input type="submit" value="Submit" class="btn btn-secondary">
   </form>
   <br>
+
   {% if dish_list %}
-     <table class="table table-active table-bordered w-25">
+  <table style="width: 390px" class="table table-active table-bordered">
         <tr>
           <th style="width: 300px">Name</th>
-          <th style="width: 100px">Price</th>
+          <th class="table-responsive">Price</th>
         </tr>
-    {% for dish in dish_list %}
+    {% for dish in dish_list%}
     <tr>
     <td style="padding: 0">
     <a class="text-white btn btn-success text-left btn-block" href={% url 'restaurant_service:dish_detail' pk=dish.pk %}>{{ dish.name }}</a>
@@ -25,8 +26,9 @@
     <td>
       {{ dish.price }} $
     </td>
-    </tr>
+
     {% endfor %}
+
     {% else %}
     <p>We don`t have any dishes at the current moment</p>
   {% endif %}
