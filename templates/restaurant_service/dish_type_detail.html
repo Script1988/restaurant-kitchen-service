@@ -2,9 +2,10 @@
 
 {% block content %}
   <h1>We have next kinds of {{ dish_type_detail }}</h1>
-     <table class="table table-active table-bordered w-25">
+  {% if dish_type_detail %}
+     <table style="width: 390px" class="table table-active table-bordered">
         <tr>
-          <th style="width: 300px">Name</th>
+          <th style="width: 290px">Name</th>
           <th>Price</th>
         </tr>
     {% for dish in dish_type_detail.dish_type.all %}
@@ -15,6 +16,6 @@
     <td>
       {{ dish.price }} $
     </td>
-    </tr>
     {% endfor %}
+    {% endif %}
 {% endblock %}
