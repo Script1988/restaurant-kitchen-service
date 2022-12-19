@@ -3,7 +3,7 @@
 
 {% block content %}
   <h1>We have current types of dishes
-   <a class="text-success" href={% url 'restaurant_service:dish_type_form' %}>+</a>
+   <a class="btn btn-success" href={% url 'restaurant_service:dish_type_form' %}>Add a dish type</a>
   </h1>
   <form action="" method="get" class="form-inline">
   {{ search_field|crispy }}
